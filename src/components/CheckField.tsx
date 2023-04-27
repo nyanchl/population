@@ -10,7 +10,7 @@ interface Props  {
   onChange: (name: string, prefName: number, check: boolean) => void;
 };
 
-const Styles: { [key: string]: React.CSSProperties } = {
+const Styles: Record<string, React.CSSProperties> = {
   checkcardList: {
     display: "flex",
     flexWrap: "wrap",
@@ -39,11 +39,11 @@ const CheckField: React.FC<Props> = ({ prefectures, onChange }) => {
               type="checkbox"
               name="Prefecture name"
               onChange={(event) =>
-                onChange(
+                { onChange(
                   prefecture.prefName,
                   prefecture.prefCode,
                   event.target.checked
-                )
+                ); }
               }
               id={"checkbox" + prefecture.prefCode}
             />
